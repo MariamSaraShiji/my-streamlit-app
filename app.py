@@ -47,7 +47,7 @@ set_bg_image("C:/CHRIST/3rd sem/Advanced Python/ETE 3/images/lmao.jpg")  # Chang
 
 
 
-# Generate Fake Dataset
+# Generate  Dataset
 def generate_dataset():
     fake = Faker()
     tracks = ["AI & ML", "Cybersecurity", "IoT", "Blockchain"]
