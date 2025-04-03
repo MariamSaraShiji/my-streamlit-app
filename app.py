@@ -146,13 +146,13 @@ ax[1, 0].set_title("Day-wise Distribution")
 sns.boxplot(x="Track", y="Day", data=filtered_df, ax=ax[1, 1], palette="muted")
 ax[1, 1].set_title("Track vs. Day Distribution")
 
-# Additional Bar Graph for College-wise Participation
+# Bar Graph for College-wise 
 sns.barplot(x=filtered_df["College"].value_counts().index, y=filtered_df["College"].value_counts().values, ax=ax[1, 2], palette="pastel")
 ax[1, 2].set_title("College-wise Participation")
 
 fig.tight_layout()
 st.pyplot(fig)
-# Word Cloud - Feedback Analysis
+# Word Cloud in Feedback Analysis
 st.write("### Word Cloud for Feedback")
 feedback_text = " ".join(filtered_df["Feedback"].astype(str))
 wordcloud = WordCloud(width=800, height=400, background_color="white").generate(feedback_text)
@@ -163,17 +163,17 @@ st.image(wordcloud.to_array())
 # Image Processing - Day-wise Image Gallery
 st.write("### Day-wise Image Gallery")
 
-img_folder = "images"  # Ensure this folder contains images
+img_folder = "images"  
 if os.path.exists(img_folder):
     img_files = os.listdir(img_folder)
 
-    # Extract available days from filenames (assuming naming convention "DayX_...")
+    
     available_days = sorted(set(f.split('_')[0] for f in img_files if f.startswith("Day")))
 
     if available_days:
         selected_day = st.selectbox("Select Day", available_days)
 
-        # Filter images based on selected day
+    
         daywise_images = [img for img in img_files if img.startswith(selected_day)]
         
         if daywise_images:
@@ -189,7 +189,7 @@ if os.path.exists(img_folder):
 else:
     st.write("No images found! Please add some track-related images to the 'images' folder.")
 
-# Custom Image Processing Component
+
 st.write("###  Image Processing Section")
 
 processing_option = st.selectbox("Choose Image Processing Effect", ["Grayscale", "Edge Detection", "Blur"])
